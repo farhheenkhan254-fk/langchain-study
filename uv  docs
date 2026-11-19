@@ -1,0 +1,242 @@
+Complete UV Python Project Tutorial
+Beginner to Practical Project Development
+1. What is UV?
+
+UV is a modern, extremely fast Python package and project manager developed by Astral.
+
+It helps you:
+
+Create Python projects.
+Create and manage virtual environments.
+Install Python libraries.
+Manage project dependencies.
+Install Python versions.
+Run Python programs.
+Build and publish Python packages.
+
+It combines many capabilities of tools such as pip, venv, and pip-tools.
+
+2. Installing UV
+Windows (PowerShell)
+powershell
+pip install uv
+
+
+Alternatively, use the official installer:
+
+powershell
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+
+Linux / macOS
+bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+Verify Installation
+bash
+uv --version
+
+3. Creating a New Python Project
+
+Create a project named myproject:
+
+bash
+uv init myproject
+
+
+Navigate into the project directory:
+
+bash
+cd myproject
+
+Project Structure
+text
+myproject/
+│
+├── main.py
+├── pyproject.toml
+├── README.md
+└── .python-version
+
+main.py: Main Python application.
+pyproject.toml: Project configuration and dependencies.
+README.md: Project documentation.
+.python-version: Specifies the Python version.
+4. Creating a Virtual Environment
+
+Run:
+
+bash
+uv venv
+
+
+This creates a virtual environment named .venv.
+
+Activate on Windows
+powershell
+.venv\Scripts\activate
+
+Activate on Linux / macOS
+bash
+source .venv/bin/activate
+
+
+Note: You do not need to activate the environment manually when using uv run.
+
+5. Installing Python Libraries
+Install a Single Library
+bash
+uv add fastapi
+
+Install Multiple Libraries
+bash
+uv add fastapi pandas numpy requests
+
+Install AI and Data Science Libraries
+bash
+uv add torch transformers datasets
+
+Install RAG Project Libraries
+bash
+uv add qdrant-client sentence-transformers
+
+Install Streamlit
+bash
+uv add streamlit
+
+Remove a Library
+bash
+uv remove pandas
+
+6. Running Python Programs
+
+Run your Python file:
+
+bash
+uv run main.py
+
+
+Check the Python version:
+
+bash
+uv run python --version
+
+
+Open the Python interactive shell:
+
+bash
+uv run python
+
+7. Important UV Commands
+Command	Purpose
+uv init	Create a new project
+uv venv	Create a virtual environment
+uv add package	Install a package
+uv remove package	Remove a package
+uv sync	Synchronize dependencies
+uv run main.py	Run a Python file
+uv lock	Update the lock file
+uv tree	Display dependency tree
+uv pip list	List installed packages
+uv python list	List available Python versions
+uv python install 3.12	Install Python 3.12
+uv build	Build the project
+uv self update	Update UV
+uv cache clean	Clear the UV cache
+uv --help	Display help
+8. Practical Project: Building a FastAPI Backend
+
+Let's create a simple backend application using UV.
+
+Step 1: Create a Project
+bash
+uv init ai-project
+cd ai-project
+
+Step 2: Install FastAPI and Uvicorn
+bash
+uv add fastapi uvicorn
+
+Step 3: Write Code in main.py
+python
+from fastapi import FastAPI
+
+app = FastAPI()
+
+@app.get("/")
+def home():
+    return {
+        "message": "My AI Project is Running!"
+    }
+
+Step 4: Run the Server
+bash
+uv run uvicorn main:app --reload
+
+Step 5: Open in Your Browser
+
+Application URL:
+
+text
+http://127.0.0.1:8000
+
+
+API Documentation:
+
+text
+http://127.0.0.1:8000/docs
+
+
+Congratulations! Your first FastAPI backend is ready.
+
+9. Useful Python Libraries for AI and Sovereign Stack Development
+Library	Purpose
+FastAPI	AI Backend Development
+PyTorch	Deep Learning
+Transformers	Working with Open-Weight Models
+Datasets	Training Datasets
+PEFT	LoRA and Fine-Tuning
+Qdrant	Vector Database
+Sentence Transformers	Text Embeddings
+LangChain	LLM Application Development
+LlamaIndex	RAG Systems
+Streamlit	AI Web Interfaces
+Ollama	Local LLM Inference
+Install Multiple AI Libraries
+bash
+uv add fastapi uvicorn
+uv add torch transformers datasets
+uv add peft
+uv add qdrant-client
+uv add sentence-transformers
+uv add streamlit
+
+10. Recommended Learning Roadmap
+
+If your goal is to build your own AI applications and Sovereign Stack, follow this learning sequence:
+
+Python Basics
+UV and Virtual Environments
+FastAPI – Backend Development
+Qdrant – Vector Database
+Embeddings and Semantic Search
+RAG – Retrieval-Augmented Generation
+Ollama – Running Local LLMs
+Transformers – Open-Weight Models
+QLoRA – Model Fine-Tuning
+Knowledge Graphs and Ontology
+11. Important Note
+
+UV is not an AI model. It is a Python project, package, and dependency management tool.
+
+You can use UV to organize and manage the complete Python environment required for your AI projects.
+
+Official Documentation
+UV Documentation: https://docs.astral.sh/uv/
+FastAPI: https://fastapi.tiangolo.com/
+Qdrant: https://qdrant.tech/documentation/
+Hugging Face: https://huggingface.co/docs
+Conclusion
+
+UV is an excellent tool for organizing Python development environments.
+
+Learning UV will help you build the foundation for larger projects involving RAG, local LLMs, model fine-tuning, and Sovereign AI systems.
